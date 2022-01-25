@@ -21,6 +21,7 @@
         "views/views.xml",
         "views/templates.xml",
         "views/sale_order_archive_views.xml",
+        "data/ir_cron.xml",
     ],
     # only loaded in demonstration mode
     "demo": [
