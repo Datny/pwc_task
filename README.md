@@ -1,3 +1,9 @@
+!!!  IMPORTANT !!!
+Usernames and passwords should not be placed in github. 
+I took liberty of passing them this way for ease of use.
+This task is for recruitment. Normally placeholders would be used instead of them.
+
+
 Requirements:
 Odoo community ver. 14
 wkhtmltopdf 0.12.5
@@ -21,4 +27,5 @@ To run project on Linux:
    grant all privileges on database "odoo-db" to "odoo-u";
    \q
 ```
-8. Run odoo with ./odoo-bin --addons-path="addons
+8. Change directory in run_odoo.sh and odoo.conf to fit Your project
+9. To run project: ./run_odoo.sh

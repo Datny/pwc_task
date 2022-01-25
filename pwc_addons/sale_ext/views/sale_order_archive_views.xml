@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <record id="sale_order_archive_view_tree" model="ir.ui.view">
+    <field name="name">Sale Order Archive</field>
+    <field name="model">sale.order.archive</field>
+    <field name="arch" type="xml">
+      <tree>
+        <field name="name"/>
+        <field name="customer"/>
+        <field name="sale_person"/>
+        <field name="order_total_amount"/>
+        <field name="order_currency"/>
+        <field name="count_of_order_lines"/>
+        <field name="create_date" />
+      </tree>
+    </field>
+  </record>
+  <record id="sale_order_archive_form_view" model="ir.ui.view">
+    <field name="name">Sale Order Archive</field>
+    <field name="model">sale.order.archive</field>
+    <field name="arch" type="xml">
+      <form>
+        <sheet>
+          <group>
+            <group>
+              <field name="name"/>
+              <field name="customer"/>
+              <field name="sale_person"/>
+              <field name="create_date" />
+            </group>
+            <group>
+              <field name="order_total_amount"/>
+              <field name="order_currency"/>
+              <field name="count_of_order_lines"/>
+            </group>
+          </group>
+        </sheet>
+      </form>
+    </field>
+  </record>
+  <record model="ir.actions.act_window" id="sale_ext.action_window">
+    <field name="name">Sale Order Archive</field>
+    <field name="res_model">sale.order.archive</field>
+    <field name="view_mode">tree,form</field>
+  </record>
+  <menuitem name="Sale Order Archive" id="sale_order_archive_menu" parent="sale.sale_order_menu" sequence="2" action="sale_ext.action_window"/>
+</odoo>
