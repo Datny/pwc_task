@@ -10,12 +10,12 @@ class SaleOlder(models.Model):
     conv_factor = fields.Integer(default=1)
     customer_quantity = fields.Float(compute="_compute_customer_quantity", store=True)
 
-    @api.depends('conv_factor', 'product_uom_qty')
+    @api.depends("conv_factor", "product_uom_qty")
     def _compute_customer_quantity(self):
         for rec in self:
             rec.customer_quantity = rec.conv_factor * rec.product_uom_qty
 
-    @api.constrains('conv_factor')
+    @api.constrains("conv_factor")
     def _verify_conv_factor(self):
         for rec in self:
             if rec.conv_factor <= 0:
