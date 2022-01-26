@@ -4,7 +4,7 @@
     <field name="name">Sale Order Archive</field>
     <field name="model">sale.order.archive</field>
     <field name="arch" type="xml">
-      <tree>
+      <tree create="false" edit="false" >
         <field name="name"/>
         <field name="customer"/>
         <field name="sale_person"/>
@@ -19,7 +19,7 @@
     <field name="name">Sale Order Archive</field>
     <field name="model">sale.order.archive</field>
     <field name="arch" type="xml">
-      <form>
+      <form create="false" edit="false" >
         <sheet>
           <group>
             <group>

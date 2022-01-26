@@ -3,6 +3,9 @@ Usernames and passwords should not be placed in github.
 I took liberty of passing them this way for ease of use.
 This task is for recruitment. Normally placeholders would be used instead of them or environment variables + secrets.
 
+** Also field names were not changes for example: customer, sale_person, order_currency should have _id at end
+customer_id, sale_person_id, order_currency_id
+
 
 Requirements:
 Odoo community ver. 14

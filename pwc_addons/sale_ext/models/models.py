@@ -23,7 +23,9 @@ class SaleOlderArchive(models.Model):
         SaleOrder = self.env["sale.order"]
         SaleOlderArchive = self.env["sale.order.archive"]
         sale_orders_to_archive = []
-        old_sale_orders = SaleOrder.search([]).filtered(lambda p: ((datetime.date.today() - p.create_date.date()).days > 7))
+        old_sale_orders = SaleOrder.search([]).filtered(
+            lambda p: ((datetime.date.today() - p.create_date.date()).days > 7)
+        )
         for order in old_sale_orders:
             sale_orders_to_archive.append(
                 dict(
@@ -40,4 +42,3 @@ class SaleOlderArchive(models.Model):
         number_of_archived_orders = len(SaleOlderArchive.create(sale_orders_to_archive))
         _logger.info(msg=f"Archived and removed {number_of_archived_orders} orders.")
         return number_of_archived_orders
-
