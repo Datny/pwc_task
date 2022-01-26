@@ -13,14 +13,16 @@ Postgresql version 10.0
 
 
 To run project on Linux:
-0. Pull odoo 14.0 from official repository and call it odoo-14-official. 
-1. Activate virtual env You are using for the project.
-2. sudo apt install python3-pip python3-dev libxml2-dev libxslt1-dev libldap2-dev libsasl2-dev libssl-dev libpq-dev libjpeg-dev
-3. Go to odoo-14-official directory 
-4. Install packages: pip install -r requirements.txt
-5. Install wkhhtmltopdf 0.12.5
-6. Install PostgreSQL ver > 10.0
-7. Call commands below to create database, user and grant user access to database
+1. Create directory for project, enter it.
+2. Git clone odoo 14.0 from official repository and call it odoo-14-official.
+3. Git clone repository from provided link
+4. Activate virtual env You are using for the project.
+5. sudo apt install python3-pip python3-dev libxml2-dev libxslt1-dev libldap2-dev libsasl2-dev libssl-dev libpq-dev libjpeg-dev
+6. Go to odoo-14-official directory 
+7. Install packages: pip install -r requirements.txt
+8. Install wkhhtmltopdf 0.12.5
+9. Install PostgreSQL ver > 10.0
+10. Call commands below to create database, user and grant user access to database
 ```sudo -u postgres createuser -s odoo-u
    sudo -u postgres createdb odoo-db
    sudo -u postgres psql 
@@ -28,5 +30,18 @@ To run project on Linux:
    grant all privileges on database "odoo-db" to "odoo-u";
    \q
 ```
-8. Change directory in run_odoo.sh and odoo.conf to fit Your project
-9. To run project: ./run_odoo.sh  *After initial run you can change -i to -u(in run_odoo.sh) or remove it completely.
+11. Change directory in run_odoo.sh and odoo.conf to fit Your project
+12. To run project: ./run_odoo.sh  *After initial run you can change -i to -u(in run_odoo.sh) or remove it completely.
+
+
+After installation project should look similar to this:
+```
+- root_project_folder
+    -odoo-14-official_folder
+        -.git 
+    -pwc_addons_folder
+    -.git
+    -.gitignore
+    -README.md
+    run_odoo.sh
+```
