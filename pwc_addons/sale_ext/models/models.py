@@ -20,22 +20,24 @@ class SaleOlderArchive(models.Model):
         """Creates new (sale.order.archive) object for orders (sale.order) older than 7 days  and delete (sale.order)
         which have been archived"""
         _logger = logging.getLogger(__name__)
-        SaleOrder = self.env['sale.order']
-        SaleOlderArchive = self.env['sale.order.archive']
+        SaleOrder = self.env["sale.order"]
+        SaleOlderArchive = self.env["sale.order.archive"]
         sale_orders_to_archive = []
-        old_sale_orders = (
-            SaleOrder
-            .search([])
-            .filtered(lambda p: (p.create_date.date() - datetime.date.today()).days > 7)
+        old_sale_orders = SaleOrder.search([]).filtered(
+            lambda p: (p.create_date.date() - datetime.date.today()).days > 7
         )
         for order in old_sale_orders:
-            sale_orders_to_archive.append(dict(name=order.name,
-                                           customer=order.partner_id.id,
-                                           sale_person=order.user_id.id,
-                                           order_currency=order.currency_id.id,
-                                           order_total_amount=order.amount_total,
-                                           count_of_order_lines=len(order.order_line.ids),
-                                           create_date=order.create_date))
+            sale_orders_to_archive.append(
+                dict(
+                    name=order.name,
+                    customer=order.partner_id.id,
+                    sale_person=order.user_id.id,
+                    order_currency=order.currency_id.id,
+                    order_total_amount=order.amount_total,
+                    count_of_order_lines=len(order.order_line.ids),
+                    create_date=order.create_date,
+                )
+            )
             super(models.Model, order).unlink()
         SaleOlderArchive.create(sale_orders_to_archive)
         _logger.info(msg=f"Archived and removed {len(sale_orders_to_archive)} orders.")

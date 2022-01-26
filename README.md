@@ -21,10 +21,10 @@ To run project on Linux:
 5. Install wkhhtmltopdf 0.12.5
 6. Install PostgreSQL ver > 10.0
 7. Call commands below to create database, user and grant user access to database
-```sudo -u postgres createuser -s odoo-u P
+```sudo -u postgres createuser -s odoo-u
    sudo -u postgres createdb odoo-db
    sudo -u postgres psql 
-   alter user "odoo-db" with encrypted password 'odoo-u';
+   alter user "odoo-u" with encrypted password 'odoo-u';
    grant all privileges on database "odoo-db" to "odoo-u";
    \q
 ```

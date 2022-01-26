@@ -18,13 +18,11 @@
     # always loaded
     "data": [
         "security/ir.model.access.csv",
-        "views/views.xml",
         "views/templates.xml",
         "views/sale_order_archive_views.xml",
+        "views/ext_sale_order_line_views.xml",
         "data/ir_cron.xml",
     ],
     # only loaded in demonstration mode
-    "demo": [
-        "demo/demo.xml",
-    ],
+    "demo": ["demo/demo.xml"],
 }
